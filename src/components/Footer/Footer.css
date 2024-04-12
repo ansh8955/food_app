@@ -67,7 +67,7 @@ color: white;
 
 @media (max-width:750px){
 
-  .footer-contentdisplay{
+  .footer-content{
 
 display: flex;
 flex-direction: column;

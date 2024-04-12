@@ -71,13 +71,19 @@ overflow-x: scroll;
   padding: 2px;
 }
 
-@media (max-width:1050px){
-
-  
-}
 
 
 .menu-text p{
 
 width: 100%;
+}
+
+
+@media (max-width:1050){
+
+
+  .menu-text{
+    max-width: 100%;
+    font-size: 14px;
+  }
 }

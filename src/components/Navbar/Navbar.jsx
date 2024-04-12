@@ -22,6 +22,7 @@ const Navbar = ({setLogin}) => {
   return (
     <div className="navbar">
       <Link to='/' className="logo">FOOD JUNCTION</Link>
+    
       <ul className="navbar-list">
         <Link
           to="/"
@@ -60,6 +61,8 @@ const Navbar = ({setLogin}) => {
           </Link>
       </ul>
 
+      
+     
       <div className="nav-right">
         <img src={assets.search_icon} alt="search" onClick={()=>open()} ></img>
 

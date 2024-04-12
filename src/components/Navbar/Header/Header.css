@@ -53,6 +53,12 @@ position: relative;
 
 
 @media (max-width:1050px){
+
+
+  .header-container{
+
+    height: 38vw;
+  }
   .content{
 
     max-width: 45%;
