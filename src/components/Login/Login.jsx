@@ -50,7 +50,7 @@ const Login = ({ setLogin }) => {
           <p>By continuing, I agree to the terms and policy</p>
         </div>
         {state === "Login" ? (
-          <p>
+          <p>\/
             Create a new Account <span onClick={() => setState("SignUp")}>Click here</span>
           </p>
         ) : (
