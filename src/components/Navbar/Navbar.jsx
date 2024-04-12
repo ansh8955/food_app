@@ -6,11 +6,22 @@ import { StoreContext } from "../../Context/StoreContext";
 
 const Navbar = ({setLogin}) => {
 
+  const open =()=>{
+
+
+    <div>
+
+<input type="text"/>
+    </div>
+   
+
+  }
+
   const {totalAmount} = useContext(StoreContext);
   const [page, setPage] = useState("home");
   return (
     <div className="navbar">
-      <Link to='/'><img src={assets.logo} alt="logo" className="logo" /></Link>
+      <Link to='/' className="logo">FOOD JUNCTION</Link>
       <ul className="navbar-list">
         <Link
           to="/"
@@ -50,7 +61,7 @@ const Navbar = ({setLogin}) => {
       </ul>
 
       <div className="nav-right">
-        <img src={assets.search_icon} alt="search"></img>
+        <img src={assets.search_icon} alt="search" onClick={()=>open()} ></img>
 
         <div className="search-icon">
           <Link to='/cart'><img src={assets.basket_icon} alt=""></img></Link>

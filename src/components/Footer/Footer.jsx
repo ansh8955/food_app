@@ -1,6 +1,8 @@
 import React from 'react';
 import './Footer.css';
 import { assets } from '../../assets/assets';
+import {Link} from "react-router-dom";
+
 
 const Footer = () => {
   return (
@@ -10,7 +12,8 @@ const Footer = () => {
 
 <div className='left-content'>
 
-<img src={assets.logo}/>
+<Link to='/' className="logo"><span>FOOD JUNCTION</span></Link>
+
 
 <p>From the freshest ingredients to the finest techniques, we're dedicated to elevating your palate and creating memories that linger long after the last bite</p>
 

@@ -57,6 +57,14 @@ color: white;
   border: none;
 }
 
+.logo{
+
+  width: 100%;
+  color: #DF6914;
+  font-weight: 600;
+  font-size:xx-large;
+}
+
 @media (max-width:750px){
 
   .footer-contentdisplay{

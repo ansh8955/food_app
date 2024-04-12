@@ -9,6 +9,9 @@
 .navbar .logo{
 
   width: 150px;
+  color: #DF6914;
+  font-weight: 600;
+  font-size:xx-large;
 }
 
 .navbar-list{
