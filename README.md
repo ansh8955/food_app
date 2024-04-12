@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 # Food Junction
 
-Food Junction is a web application built with React.js that aims to provide features similar to popular food delivery platforms like Zomato. It allows users to search for nearby restaurants, browse their menus, place orders, and more.
+Food Junction is a web application built with React.js that aims to provide features similar to popular food delivery platforms. It allows users to search for nearby restaurants, browse their menus, place orders, and more.
 
 ## Features
 
@@ -33,11 +33,12 @@ Food Junction is a web application built with React.js that aims to provide feat
 
 To run the project locally, follow these steps:
 
-1. Clone the repository: `git clone <repository-url>`
+1. Clone the repository: `git clone `(https://github.com/ansh8955/food_app.git)`
 2. Navigate to the project directory: `cd food-junction`
 3. Install dependencies: `npm install`
-4. Start the development server: `npm start`
-5. Open your web browser and visit `http://localhost:3000` to view the application.
+4. Start the development server: `npm run dev`
+5. Open your web browser and visit `http://localhost:5173` to view the application.
+6. Hosted link:https://food-app-ashy-kappa.vercel.app/?.
 
 ## Usage
 
@@ -57,4 +58,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
-- *(Optional: Acknowledge any third-party resources, libraries, or tutorials used in the project)*
+- I took Youtube as a resource to build the project.
+
