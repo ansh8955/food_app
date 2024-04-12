@@ -56,3 +56,18 @@ color: white;
   background-color: grey;
   border: none;
 }
+
+@media (max-width:750px){
+
+  .footer-contentdisplay{
+
+display: flex;
+flex-direction: column;
+gap:35px;
+  } 
+
+  .copyright{
+
+    text-align: center;
+  }
+}

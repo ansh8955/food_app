@@ -71,23 +71,12 @@ border-bottom: 1.5px solid black;
   top: -8px;
 }
 
-@media (max-width:1050px){
+@media (max-width:750px){
 
-.navbar .logo{
-  width: 140px;
-}
+
 
 .navbar-list{
 
-gap:20px;
-font-size: 17px;
+display: none;
 }
-.nav-right{
-  gap:30px;
-
-}
-.nav-right img{
-  
-}
-
 }
