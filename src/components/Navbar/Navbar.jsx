@@ -56,7 +56,7 @@ const Navbar = ({setLogin}) => {
           <Link to='/cart'><img src={assets.basket_icon} alt=""></img></Link>
           <div className={totalAmount() === 0 ?<></> : "dot"}></div>
         </div>
-        <button onClick={()=>setLogin(true)} className="">Sign in</button>
+        <button onClick={()=>setLogin(true)} className="signin">Sign in</button>
       </div>
     </div>
   );
