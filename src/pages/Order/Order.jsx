@@ -1,40 +1,32 @@
-import React, { useContext } from 'react';
-import './Order.css';
-import { StoreContext } from '../../Context/StoreContext';
+import React, { useContext } from "react";
+import "./Order.css";
+import { StoreContext } from "../../Context/StoreContext";
+import Razorpayment from "../../components/Razorpayment/Razorpayment.jsx";
 
 const Order = () => {
-
-
-  const {totalAmount} = useContext(StoreContext);
+  const { totalAmount } = useContext(StoreContext);
   return (
-    <form className='order'>
-<div className='left-order'>
+    <form className="order">
+      <div className="left-order">
+        <p className="title"> Delivery Info</p>
+        <div className="fields">
+          <input type="text" placeholder="First name" />
+          <input type="text" placeholder="Last name" />
+        </div>
 
-<p className='title'> Delivery Info</p>
-<div className='fields'>
+        <input type="email" placeholder="Email address" />
+        <input type="text" placeholder="Street" />
 
-  <input type='text' placeholder='First name'/>
-  <input type='text' placeholder='Last name'/>
+        <input type="text" placeholder="City" />
+        <input type="text" placeholder="State" />
 
-</div>
+        <input type="text" placeholder="Zid code " />
+        <input type="text" placeholder="Country" />
+        <input type="text" placeholder="phone" />
+      </div>
 
-
-<input type='email' placeholder='Email address'/>
-  <input type='text' placeholder='Street'/>
-
-  <input type='text' placeholder='City'/>
-<input type='text' placeholder='State'/>
-
-<input type='text' placeholder='Zid code '/>
-<input type='text' placeholder='Country'/>
-<input type='text' placeholder='phone'/>
-
-</div>
-
-
-<div className='right-order'>
-
-<div className="total-cart">
+      <div className="right-order">
+        <div className="total-cart">
           <h2>Cart Totals</h2>
           <div>
             <div className="total-details">
@@ -43,19 +35,19 @@ const Order = () => {
             </div>
             <div className="total-details">
               <p>Delivery Fees</p>
-              <p>${totalAmount()===0?0:5}</p>
+              <p>${totalAmount() === 0 ? 0 : 5}</p>
             </div>
             <div className="total-details">
               <b>Total</b>
-              <b> ${totalAmount()===0?0: totalAmount()+5}</b>
+              <b> ${totalAmount() === 0 ? 0 : totalAmount() + 5}</b>
             </div>
           </div>
-          <button >PROCEED TO PAYMENT</button>
+          <button>PROCEED TO PAYMENT</button>
+          {/* <Razorpayment /> */}
         </div>
-
-</div>
+      </div>
     </form>
-  )
-}
+  );
+};
 
-export default Order
+export default Order;
