@@ -28,7 +28,7 @@ const StoreContextProvider = (props) => {
       }
     }
 
-    return TotalAmount;
+    return parseInt(TotalAmount);
   };
 
   const contextValue = {

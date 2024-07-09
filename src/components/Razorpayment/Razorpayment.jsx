@@ -6,7 +6,7 @@ const Razorpayment = () => {
 
   const openPaymentDialog = () => {
     const options = {
-      key: "rzp_test_47OB4SGr8o5ZX6", // Replace with your actual key
+      key: "rzp_test_WNVM9LqgCjeGM7", // Replace with your actual key
       amount: 10000, // Example: 10000 means ₹100.00
       currency: "INR",
       name: "Your Company Name",

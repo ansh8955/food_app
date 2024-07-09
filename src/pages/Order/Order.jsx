@@ -1,12 +1,50 @@
 import React, { useContext } from "react";
 import "./Order.css";
 import { StoreContext } from "../../Context/StoreContext";
-import Razorpayment from "../../components/Razorpayment/Razorpayment.jsx";
 
 const Order = () => {
   const { totalAmount } = useContext(StoreContext);
+
+  const openPaymentDialog = async (e) => {
+
+    e.preventDefault();
+    const options = {
+      key: "rzp_test_WNVM9LqgCjeGM7", // Replace with your actual key
+      key_secret:"bOkw6JNvYgC7ms1icHTTbdQq",
+      amount: totalAmount()*100 + 500, // Amount is in paisa (100th of currency unit)
+      currency: "INR",
+      name: "Your Company Name",
+      description: "Test payment",
+      image: "https://yourcompany.com/logo.png",
+      handler: function (response) {
+        console.log(response);
+        alert(response.razorpay_payment_id);
+        // You can add additional logic here such as updating your database
+        // Update state to reflect payment completion
+      },
+      prefill: {
+        name: "John Doe",
+        email: "john.doe@example.com",
+        contact: "+919876543210",
+      },
+      notes: {
+        address: "Razorpay Corporate Office",
+      },
+      theme: {
+        color: "#F37254",
+      },
+    };
+
+    try {
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    } catch (error) {
+      console.error("Error in creating Razorpay instance:", error);
+    }
+  };
+
   return (
-    <form className="order">
+    <form className="order" onSubmit={openPaymentDialog}>
       <div className="left-order">
         <p className="title"> Delivery Info</p>
         <div className="fields">
@@ -20,9 +58,9 @@ const Order = () => {
         <input type="text" placeholder="City" />
         <input type="text" placeholder="State" />
 
-        <input type="text" placeholder="Zid code " />
+        <input type="text" placeholder="Zip code" />
         <input type="text" placeholder="Country" />
-        <input type="text" placeholder="phone" />
+        <input type="text" placeholder="Phone" />
       </div>
 
       <div className="right-order">
@@ -42,8 +80,7 @@ const Order = () => {
               <b> ${totalAmount() === 0 ? 0 : totalAmount() + 5}</b>
             </div>
           </div>
-          <button>PROCEED TO PAYMENT</button>
-          {/* <Razorpayment /> */}
+          <button >PROCEED TO PAYMENT</button>
         </div>
       </div>
     </form>
