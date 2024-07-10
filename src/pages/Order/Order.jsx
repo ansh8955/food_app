@@ -69,15 +69,15 @@ const Order = () => {
           <div>
             <div className="total-details">
               <p>SubTotal</p>
-              <p>${totalAmount()}</p>
+              <p>₹{totalAmount()}</p>
             </div>
             <div className="total-details">
               <p>Delivery Fees</p>
-              <p>${totalAmount() === 0 ? 0 : 5}</p>
+              <p>₹{totalAmount() === 0 ? 0 : 5}</p>
             </div>
             <div className="total-details">
               <b>Total</b>
-              <b> ${totalAmount() === 0 ? 0 : totalAmount() + 5}</b>
+              <b> ₹{totalAmount() === 0 ? 0 : totalAmount() + 5}</b>
             </div>
           </div>
           <button >PROCEED TO PAYMENT</button>

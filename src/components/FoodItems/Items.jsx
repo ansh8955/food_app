@@ -37,7 +37,7 @@ const {cartItems,addToCart,removeFromCart} = useContext(StoreContext);
 
 </div>
 <p className='desc'>{description}</p>
-<p className='price'>${price}</p>
+<p className='price'>₹{price}</p>
 
 </div>
     </div>
