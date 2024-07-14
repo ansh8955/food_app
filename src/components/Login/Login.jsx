@@ -9,8 +9,11 @@ import {
   signOut,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
 
 const Login = () => {
+  const { currentUser, setLogin } = useAuth();
+  console.log(currentUser);
   const navigate = useNavigate();
   const [state, setState] = useState("Login");
   const [name, setName] = useState("");
@@ -46,7 +49,9 @@ const Login = () => {
       );
 
       console.log("User signed up:", userCredential.user);
+
       navigate("/");
+      setLogin(false);
     } catch (error) {
       console.error("Error signing up:", error);
     }
@@ -62,6 +67,7 @@ const Login = () => {
       );
       console.log("User signed in:", userCredential.user.uid);
       navigate("/cart");
+      setLogin(false);
     } catch (error) {
       console.error("Error signing in:", error);
     }
@@ -73,7 +79,10 @@ const Login = () => {
         <div className="login-title">
           <h2>{state}</h2>
           <img
-            // onClick={() => setLogin(false)}
+            onClick={() => {
+              setLogin(false);
+              navigate("/");
+            }}
             src={assets.cross_icon}
             alt="close"
           />

@@ -1,28 +1,31 @@
 import React, { useContext, useState } from "react";
 import { assets } from "../../assets/assets";
 import "./Navbar.css";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { StoreContext } from "../../Context/StoreContext";
+import { useAuth } from "../../Context/AuthContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../../Config";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = ({setLogin}) => {
+const Navbar = ({ setLogin }) => {
+  const navigate = useNavigate();
+  const { currentUser } = useAuth();
 
-  const open =()=>{
-
-
+  const open = () => {
     <div>
+      <input type="text" />
+    </div>;
+  };
 
-<input type="text"/>
-    </div>
-   
-
-  }
-
-  const {totalAmount} = useContext(StoreContext);
+  const { totalAmount } = useContext(StoreContext);
   const [page, setPage] = useState("home");
   return (
     <div className="navbar">
-      <Link to='/' className="logo">FOOD JUNCTION</Link>
-    
+      <Link to="/" className="logo">
+        FOOD JUNCTION
+      </Link>
+
       <ul className="navbar-list">
         <Link
           to="/"
@@ -52,25 +55,43 @@ const Navbar = ({setLogin}) => {
         >
           Contact Us
         </a>
-        
 
-          <Link to='/Aboutus' onClick={() => setPage("Aboutus")}
-          className={page === "Aboutus" ? "active" : ""}>
-        
+        <Link
+          to="/Aboutus"
+          onClick={() => setPage("Aboutus")}
+          className={page === "Aboutus" ? "active" : ""}
+        >
           About US
-          </Link>
+        </Link>
       </ul>
 
-      
-     
       <div className="nav-right">
-        <img src={assets.search_icon} alt="search" onClick={()=>open()} ></img>
+        <img src={assets.search_icon} alt="search" onClick={() => open()}></img>
 
         <div className="search-icon">
-          <Link to='/cart'><img src={assets.basket_icon} alt=""></img></Link>
-          <div className={totalAmount() === 0 ?<></> : "dot"}></div>
+          <Link to="/cart">
+            <img src={assets.basket_icon} alt=""></img>
+          </Link>
+          <div className={totalAmount() === 0 ? <></> : "dot"}></div>
         </div>
-        <button onClick={()=>setLogin(true)} className="signin">Sign in</button>
+        {!currentUser && (
+          <button
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            Sign in
+          </button>
+        )}
+        {currentUser && (
+          <button
+            onClick={() => {
+              signOut(auth);
+            }}
+          >
+            Signout
+          </button>
+        )}
       </div>
     </div>
   );
