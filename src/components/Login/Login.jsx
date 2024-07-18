@@ -13,7 +13,6 @@ import { useAuth } from "../../Context/AuthContext";
 
 const Login = () => {
   const { currentUser, setLogin } = useAuth();
-  console.log(currentUser);
   const navigate = useNavigate();
   const [state, setState] = useState("Login");
   const [name, setName] = useState("");

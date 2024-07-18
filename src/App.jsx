@@ -10,6 +10,7 @@ import Aboutus from "./pages/About US/Aboutus";
 import { AuthProvider } from "./Context/AuthContext";
 import Login from "./components/Login/Login";
 import Signup from "./pages/Signup/Signup";
+import { StoreContext } from "./Context/StoreContext";
 
 const App = () => {
   const [login, setLogin] = useState(false);
@@ -19,6 +20,8 @@ const App = () => {
       {login ? <Login setLogin={setLogin} /> : null}
       <div className="app">
         <AuthProvider>
+
+        <StoreContextProvider>
           <Navbar setLogin={setLogin} />
 
           <Routes>
@@ -28,6 +31,7 @@ const App = () => {
             <Route path="/Aboutus" element={<Aboutus />} />
             <Route path="/login" element={<Signup />} />
           </Routes>
+          </StoreContextProvider>
         </AuthProvider>
       </div>
       <Footer />
