@@ -12,19 +12,21 @@ import {
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState({});
+  const [cartItems, setCartItems] = useState([]);
   // const {userUid} = useAuth();
   const [userUid,setUserUid] = useState('');
 
 
   // console.log(userUid);
-  const addToCart = (itemId) => {
+  const addToCart = (itemId,value) => {
     if (!cartItems[itemId]) {
-      setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
+      setCartItems((prev) => ([ ...prev, {value,q:1}]));
     } else {
-      setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+      // setCartItems((prev) => ([ ...prev, {value,q:1}]: prev{value,q:1} + 1 }));
     }
+    console.log(value);
   };
+
 
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
@@ -58,11 +60,11 @@ const StoreContextProvider = (props) => {
     }
   }
 
-  {}
+  {console.log(cartItems)}
 
   useEffect(()=>{
 
-    storeUserData(userUid,cartItems);
+    storeUserData(userUid,{cartItems});
 
     console.log(userUid);
   },[cartItems])
