@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
+// import { useAuth } from "./AuthContext";
 import { food_list } from "../assets/assets";
-import { useAuth } from "./AuthContext";
 import {
   addDoc,
   collection,
@@ -13,8 +13,11 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
-  const {currentUser} = useAuth();
+  // const {userUid} = useAuth();
+  const [userUid,setUserUid] = useState('');
 
+
+  // console.log(userUid);
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {
       setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
@@ -55,11 +58,13 @@ const StoreContextProvider = (props) => {
     }
   }
 
+  {}
+
   useEffect(()=>{
 
-    storeUserData(currentUser.uid,cartItems);
+    storeUserData(userUid,cartItems);
 
-    console.log(currentUser.uid);
+    console.log(userUid);
   },[cartItems])
   
   const contextValue = {
@@ -69,6 +74,8 @@ const StoreContextProvider = (props) => {
     addToCart,
     removeFromCart,
     totalAmount,
+    userUid,
+    setUserUid,
   };
 
   return (

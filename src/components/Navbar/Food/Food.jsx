@@ -19,7 +19,7 @@ const {food_list} = useContext(StoreContext)
 
       if(category==="All" || category === item.category){
 
-        return <Items key = {index} id = {item._id} name = {item.name} description={item.description} image={item.image} price={item.price}/>
+        return <Items key = {index}  value = {item} id = {item._id} name = {item.name} description={item.description} image={item.image} price={item.price}/>
       }
 
      })

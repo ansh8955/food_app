@@ -10,6 +10,8 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
+import { useContext } from "react";
+import { StoreContext } from "../../Context/StoreContext";
 
 const Login = () => {
   const { currentUser, setLogin } = useAuth();
@@ -18,6 +20,7 @@ const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {setUserUid,userUid} = useContext(StoreContext);
 
   // const handleLogin = (e) => {
   //   e.preventDefault();
@@ -48,6 +51,7 @@ const Login = () => {
       );
 
       console.log("User signed up:", userCredential.user);
+      setUserUid(userCredential.user.uid);
 
       navigate("/");
       setLogin(false);
@@ -65,6 +69,7 @@ const Login = () => {
         password
       );
       console.log("User signed in:", userCredential.user.uid);
+      setUserUid(userCredential.user.uid);
       navigate("/cart");
       setLogin(false);
     } catch (error) {

@@ -3,26 +3,29 @@ import './Items.css';
 import { assets } from '../../assets/assets';
 import { StoreContext } from '../../Context/StoreContext';
 
-const Items = ({id,name,price,description,image}) => {
+const Items = ({id,name,price,description,image,value}) => {
 
 const [count,setCount] = useState(0);
 const {cartItems,addToCart,removeFromCart} = useContext(StoreContext);
 
+// console.log(value);
+
   return (
     <div className='food_card'>
 
+
 <div className='food_img'>
 
-  <img  className ="foodimg "src={image} alt='food_img'/>
+  <img  className ="foodimg " src={image} alt='food_img'/>
 
   {!cartItems[id] ? 
-  <img className="add" onClick={()=>addToCart(id)} src={assets.add_icon_white} alt="add_icon" />
+  <img className="add" onClick={()=>addToCart(id,value)} src={assets.add_icon_white} alt="add_icon" />
  : 
   <div className='food-counter'>
 
 <img onClick={()=>removeFromCart(id)} src={assets.remove_icon_red}/>
 <p>{cartItems[id]}</p>
-<img onClick={()=>addToCart(id)} src={assets.add_icon_green}/>
+<img onClick={()=>addToCart(id,value)} src={assets.add_icon_green}/>
 
   </div>
 }

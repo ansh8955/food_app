@@ -10,7 +10,7 @@ import Aboutus from "./pages/About US/Aboutus";
 import { AuthProvider } from "./Context/AuthContext";
 import Login from "./components/Login/Login";
 import Signup from "./pages/Signup/Signup";
-import { StoreContext } from "./Context/StoreContext";
+import StoreContextProvider, { StoreContext } from "./Context/StoreContext";
 
 const App = () => {
   const [login, setLogin] = useState(false);
@@ -20,10 +20,8 @@ const App = () => {
       {login ? <Login setLogin={setLogin} /> : null}
       <div className="app">
         <AuthProvider>
-
         <StoreContextProvider>
           <Navbar setLogin={setLogin} />
-
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
