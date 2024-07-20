@@ -70,7 +70,7 @@ const Login = () => {
       );
       console.log("User signed in:", userCredential.user.uid);
       setUserUid(userCredential.user.uid);
-      navigate("/cart");
+      navigate("/");
       setLogin(false);
     } catch (error) {
       console.error("Error signing in:", error);
@@ -82,14 +82,14 @@ const Login = () => {
       <div className="login-container">
         <div className="login-title">
           <h2>{state}</h2>
-          <img
+          {/* <img
             onClick={() => {
               setLogin(false);
               navigate("/");
             }}
-            src={assets.cross_icon}
+            // src={assets.cross_icon}
             alt="close"
-          />
+          /> */}
         </div>
         <div className="login-input">
           {state === "Login" ? null : (
